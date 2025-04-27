@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Arconi Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for the Academics page */
+        .curriculum-section {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        .curriculum-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .curriculum-card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .curriculum-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .subject-list {
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .subject-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .subject-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .calendar-table th,
+        .calendar-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .calendar-table th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .calendar-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .calendar-table tr:hover {
+            background-color: #e9e9e9;
+        }
+
+        .intro-paragraph {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div style="text-align: right;" class="top-header">
+            <i style="font-size:18px; color: white;" class="fa">&#xf0e0; <a
+                    href="mailto:arconi.contact@gmail.com">arconi.contact@gmail.com</a></i>
+            <style>
+                .fa {
+                    padding: 5px;
+                }
+            </style>
+            <i style="font-size:18px; color: white;" class="fa">&#xf095; +234 904 323 0102</i>
+            <a href="#" class="fa fa-facebook"></a>
+            <style>
+                .fa {
+                    padding: 5px;
+                }
+            </style>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+        </div>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="Arconi Website.html"><img src="arconi.png" width="90" height="90"
+                        alt="Arconi Academy Logo"></a>
+                <h1>Arconi Academy</h1>
+            </div>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="Arconi Website.html">Home</a></li>
+                <li>
+                    <a href="about.html">About Us</a>
+                    <ul class="sub-menu">
+                        <li><a href="about.html#who-we-are">Who We Are</a></li>
+                        <li><a href="about.html#academics">Academics</a></li>
+                        <li><a href="about.html#management">Management</a></li>
+                        <li><a href="about.html#achievement">Achievement</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                <li>
+                    <a href="academics.html">Academics</a>
+                    <ul class="sub-menu">
+                        <li><a href="academics.html#nursery-primary-about">Nursery/Primary</a></li>
+                        <li><a href="academics.html#secondary-about">Secondary</a></li>
+                        <li><a href="academics.html#nursery-primary-curriculum">Curriculum</a></li>
+                        <li><a href="academics.html#academic-calendar">Academic Calendar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Admission</a>
+                    <ul class="sub-menu">
+                        <li><a href="admission.html">Admission Requirements</a></li>
+                        <li><a href="arconi form.html">Admission Form</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html">Result Portal</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="height: 50vh; margin-bottom: 0;">
+        <div class="container hero-content">
+            <h1>Academic Programs</h1>
+            <p>Excellence in education through a comprehensive and balanced curriculum</p>
+        </div>
+    </section>
+
+    <!-- About our Nursery/Primary Section -->
+    <section class="about" id="nursery-primary-about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Nursery & Primary School</h2>
+                <p>Building strong foundations for lifelong learning</p>
+            </div>
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="nursery.jpg" alt="Nursery Classroom">
+                </div>
+                <div class="about-content">
+                    <div class="intro-paragraph">
+                        <p>At Arconi Academy, our Nursery and Primary sections provide a nurturing environment where
+                            young learners begin their educational journey. We understand that these formative years are
+                            crucial in developing a child's love for learning, creativity, and social skills. Our
+                            approach combines play-based learning with structured academics to create a balanced
+                            educational experience.</p>
+
+                        <p>Our curriculum is designed to be comprehensive yet engaging, covering core subjects while
+                            also emphasizing creative arts, physical education, and character development. We
+                            incorporate modern teaching tools and technology to enhance the learning experience, making
+                            education both effective and enjoyable for our young learners.</p>
+
+                        <p>Beyond academics, we focus on nurturing the whole child by instilling values such as respect,
+                            responsibility, and resilience. Regular parent-teacher communication ensures that families
+                            are actively involved in their child's educational journey. At Arconi Academy, we don't just
+                            teach—we inspire, nurture, and prepare children for success in school and in life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nursery/Primary Curriculum Section -->
+    <section class="curriculum-section" id="nursery-primary-curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nursery & Primary Curriculum</h2>
+                <p>A balanced program designed to develop core skills and foster creativity</p>
+            </div>
+            <div class="curriculum-container">
+                <div class="curriculum-card">
+                    <h3>Nursery School Curriculum (Ages 3-5)</h3>
+                    <ul class="subject-list">
+                        <li>Early Literacy Skills</li>
+                        <li>Numeracy Foundations</li>
+                        <li>Environmental Studies</li>
+                        <li>Creative Arts</li>
+                        <li>Social Development</li>
+                        <li>Physical Education</li>
+                        <li>Music and Movement</li>
+                        <li>Basic Science</li>
+                        <li>Character Education</li>
+                        <li>Computer Awareness</li>
+                        <li>Biblical Studies</li>
+                        <li>Cultural Activities</li>
+                    </ul>
+                </div>
+                <div class="curriculum-card">
+                    <h3>Primary School Curriculum (Ages 6-11)</h3>
+                    <ul class="subject-list">
+                        <li>English Language</li>
+                        <li>Mathematics</li>
+                        <li>Science</li>
+                        <li>Social Studies</li>
+                        <li>Civic Education</li>
+                        <li>Cultural and Creative Arts</li>
+                        <li>Physical and Health Education</li>
+                        <li>Computer Studies</li>
+                        <li>Agricultural Science</li>
+                        <li>Home Economics</li>
+                        <li>Religious Studies</li>
+                        <li>French Language</li>
+                        <li>Yoruba Language</li>
+                        <li>Library Studies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About our Secondary School Section -->
+    <section class="about" id="secondary-about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Secondary School</h2>
+                <p>Preparing students for academic excellence and future success</p>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="intro-paragraph">
+                        <p>Arconi Academy's Secondary School builds upon the solid foundation established in our primary
+                            section, offering a rigorous academic program that prepares students for higher education
+                            and beyond. Our secondary curriculum is comprehensive and challenging, designed to develop
+                            critical thinking, analytical skills, and a deep understanding of core subjects while
+                            encouraging students to discover and pursue their unique interests and talents.</p>
+                        <p>Our dedicated faculty members are specialists in their fields, bringing expertise and passion
+                            to their teaching. They serve not only as instructors but also as mentors, guiding students
+                            through their academic journey and supporting their personal growth. Small class sizes allow
+                            for individualized attention and create an environment where students feel comfortable
+                            asking questions and engaging in meaningful discussions.</p>
+                        <p>Our state-of-the-art facilities support excellence in all areas of education. From
+                            well-equipped science laboratories and computer centers to sports facilities and creative
+                            arts spaces, we provide the resources necessary for students to excel academically and
+                            explore their interests. By the time our students graduate, they are not only academically
+                            prepared for university but also equipped with the life skills and confidence to succeed in
+                            their future endeavors.</p>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="sss.jpg" alt="Secondary School Students" width="550" height="250">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary School Curriculum Section -->
+    <section class="curriculum-section" id="secondary-curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h2>Secondary School Curriculum</h2>
+                <p>A comprehensive program aligned with national and international standards</p>
+            </div>
+            <div class="curriculum-container">
+                <div class="curriculum-card">
+                    <h3>Junior Secondary School (JSS 1-3)</h3>
+                    <ul class="subject-list">
+                        <li>English Language</li>
+                        <li>Mathematics</li>
+                        <li>Basic Science</li>
+                        <li>Basic Technology</li>
+                        <li>Social Studies</li>
+                        <li>Civic Education</li>
+                        <li>Cultural and Creative Arts</li>
+                        <li>Business Studies</li>
+                        <li>Home Economics</li>
+                        <li>Agricultural Science</li>
+                        <li>French Language</li>
+                        <li>Yoruba Language</li>
+                        <li>Physical and Health Education</li>
+                        <li>Computer Studies</li>
+                        <li>Religious Studies</li>
+                    </ul>
+                </div>
+                <div class="curriculum-card">
+                    <h3>Senior Secondary School (SSS 1-3)</h3>
+                    <ul class="subject-list">
+                        <li>English Language</li>
+                        <li>Mathematics</li>
+                        <li>Biology</li>
+                        <li>Chemistry</li>
+                        <li>Physics</li>
+                        <li>Literature in English</li>
+                        <li>Government</li>
+                        <li>Economics</li>
+                        <li>Geography</li>
+                        <li>Agricultural Science</li>
+                        <li>Accounting</li>
+                        <li>Commerce</li>
+                        <li>Computer Science</li>
+                        <li>Technical Drawing</li>
+                        <li>Food and Nutrition</li>
+                        <li>Further Mathematics</li>
+                        <li>French Language</li>
+                        <li>Visual Arts</li>
+                        <li>Music</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Calendar Section -->
+    <section class="about" id="academic-calendar">
+        <div class="container">
+            <div class="section-title">
+                <h2>2025-2026 Academic Calendar</h2>
+                <p>Important dates for the current academic year</p>
+            </div>
+
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Period</th>
+                        <th>Activities and Holidays</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="5"><strong>First Term</strong></td>
+                        <td>September 15, 2025</td>
+                        <td>School Reopens/Resumption</td>
+                    </tr>
+                    <tr>
+                        <td>October 1, 2025</td>
+                        <td>Independence Day (Holiday)</td>
+                    </tr>
+                    <tr>
+                        <td>November 10-14, 2025</td>
+                        <td>Mid-Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>December 8-15, 2025</td>
+                        <td>First Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>December 17, 2025</td>
+                        <td>End of First Term/Christmas Vacation</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="5"><strong>Second Term</strong></td>
+                        <td>January 12, 2026</td>
+                        <td>School Reopens</td>
+                    </tr>
+                    <tr>
+                        <td>February 16-20, 2026</td>
+                        <td>Mid-Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>March 13, 2026</td>
+                        <td>Sports Day</td>
+                    </tr>
+                    <tr>
+                        <td>March 22-30, 2026</td>
+                        <td>Second Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>April 2, 2026</td>
+                        <td>End of Second Term/Easter Vacation</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="6"><strong>Third Term</strong></td>
+                        <td>April 26, 2026</td>
+                        <td>School Reopens</td>
+                    </tr>
+                    <tr>
+                        <td>May 1, 2026</td>
+                        <td>Labour Day (Holiday)</td>
+                    </tr>
+                    <tr>
+                        <td>May 17, 2026</td>
+                        <td>Cultural Day</td>
+                    </tr>
+                    <tr>
+                        <td>June 7-11, 2026</td>
+                        <td>Mid-Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>July 12-20, 2026</td>
+                        <td>Third Term Examinations</td>
+                    </tr>
+                    <tr>
+                        <td>July 23, 2026</td>
+                        <td>End of Academic Year/Summer Vacation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p><strong>Note:</strong> Dates are subject to change. Parents will be notified of any adjustments to
+                    the academic calendar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3>Arconi Academy</h3>
+                    <p>Arconi Academy is committed to providing quality education in a nurturing environment, empowering
+                        students to reach their full potential.</p>
+                    <div class="social-links">
+                        <a href="#" id="social-link" class="fa fa-facebook"></a>
+                        <a href="#" id="social-link" class="fa fa-twitter"></a>
+                        <a href="#" id="social-link" class="fa fa-instagram"></a>
+                        <a href="#" id="social-link" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Arconi Website.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.htmlnursery-primary-about">Nursery/Primary</a></li>
+                        <li><a href="academics.htmlsecondary-about">Secondary</a></li>
+                        <li><a href="arconi form.html">Admission Form</a></li>
+                        <li><a href="login.html">Result Portal</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#nursery-primary-curriculum">Curriculum</a></li>
+                        <li><a href="academics.htmlacademic-calendar">Academic Calendar</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Activities & Programs</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to get the latest updates about our school.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arconi Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+        });
+
+        // Add click event to parent menu items for mobile
+        if (window.innerWidth <= 768) {
+            const menuItems = document.querySelectorAll('.nav-menu > li');
+            menuItems.forEach(item => {
+                const link = item.querySelector('a');
+                const subMenu = item.querySelector('.sub-menu');
+
+                if (subMenu) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        subMenu.classList.toggle('show');
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

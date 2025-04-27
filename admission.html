@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admission Requirements</title>
+    <style>
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+        --primary: #1a4d80;
+        --secondary: #f8b400;
+        --accent: #e63946;
+        --light: #f5f5f5;
+        --dark: #333;
+        --white: #fff;
+    }
+
+    body {
+        line-height: 1.6;
+        color: var(--dark);
+        background-color: var(--light);
+        overflow-x: hidden;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background: var(--secondary);
+        color: var(--dark);
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+    }
+
+    .section-title p {
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .top-header{
+    background: var(--primary);
+    color: white;
+    padding: 5px;
+}
+    header {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.8rem;
+        color: var(--primary);
+    }
+
+    /* Navigation */
+    .nav-menu {
+        display: flex;
+    }
+
+    .nav-menu > li {
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .nav-menu > li > a {
+        display: block;
+        padding: 10px 15px;
+        color: var(--dark);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu > li:hover > a {
+        color: var(--primary);
+    }
+
+    .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 220px;
+        background: var(--white);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+
+    .nav-menu > li:hover .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .sub-menu li a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        color: var(--dark);
+        transition: all 0.3s ease;
+    }
+
+    .sub-menu li a:hover {
+        background: #f0f0f0;
+        color: var(--primary);
+        padding-left: 25px;
+    }
+
+    .mobile-toggle {
+        display: none;
+        font-size: 1.5rem;
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    /* About Section */
+    .about {
+        background-color: var(--white);
+    }
+
+    .about-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .about-img {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+
+    .about-content p {
+        margin-bottom: 20px;
+    }
+
+    /* Admission Section */
+    .admission {
+        background: linear-gradient(rgba(26, 77, 128, 0.95), rgba(26, 77, 128, 0.95)), url('/api/placeholder/1280/800') center/cover no-repeat;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .admission h2 {
+        color: var(--white);
+    }
+
+    .admission h2::after {
+        background: var(--white);
+    }
+
+    .admission-process {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .process-step {
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        padding: 30px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .process-step:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        background: var(--secondary);
+        color: var(--dark);
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .process-step h3 {
+        margin-bottom: 10px;
+    }
+
+    /* Requirements Section */
+    .requirements {
+        background-color: var(--white);
+        margin-top: 50px;
+    }
+
+    .requirements-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .requirement-card {
+        flex: 1;
+        min-width: 300px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .requirement-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .requirement-card h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .requirement-card h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--secondary);
+    }
+
+    .requirement-list li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 25px;
+    }
+
+    .requirement-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+        background: #f5f7fa;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .contact-info {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .contact-info h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .info-item {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+    .info-details h4 {
+        color: var(--dark);
+        margin-bottom: 5px;
+    }
+
+    .info-details p {
+        color: #666;
+    }
+
+    .contact-form {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .contact-form h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(26, 77, 128, 0.2);
+    }
+
+    .form-group textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    .submit-btn {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background: var(--secondary);
+        color: var(--dark);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--dark);
+        color: var(--white);
+        padding: 70px 0 0;
+    }
+
+    .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--secondary);
+    }
+
+    .footer-column p {
+        margin-bottom: 15px;
+        color: #bbb;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #bbb;
+        transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    #social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--white);
+        transition: all 0.3s ease;
+    }
+
+    #social-link:hover {
+        background: var(--secondary);
+        color: var(--dark);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        color: #999;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+        .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .about-img, .about-content {
+            flex: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .mobile-toggle {
+            display: block;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 80px);
+            background: var(--white);
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu > li {
+            margin: 0 0 10px 0;
+        }
+
+        .nav-menu > li > a {
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sub-menu {
+            position: static;
+            width: 100%;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            padding: 0;
+            display: none;
+        }
+
+        .sub-menu.show {
+            display: block;
+        }
+
+        .sub-menu li a {
+            padding-left: 30px;
+        }
+
+        .hero {
+            height: auto;
+            padding: 120px 0 80px
+        }
+
+        .process-step {
+            min-width: 250px;
+        }
+        
+    }
+
+    @media (max-width: 576px) {
+        .section-title h2 {
+            font-size: 1.8rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        .contact-info, .contact-form {
+            flex: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div style="text-align: right;" class="top-header">
+            <i style="font-size:18px; color: white;" class="fa">&#xf0e0; <a href="mailto:arconi.contact@gmail.com">arconi.contact@gmail.com</a></i> <style> .fa{padding: 5px;}</style>
+            <i style="font-size:18px; color: white;" class="fa">&#xf095; +234 904 323 0102</i>
+            <a href="#" class="fa fa-facebook"></a> <style> .fa{padding: 5px;}</style>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+        </div>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="Arconi Website.html"><img src="arconi.png" width="90" height="90" alt="Arconi Academy Logo"></a>
+                <h1>Arconi Academy</h1>
+            </div>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="Arconi Website.html">Home</a></li>
+                <li>
+                    <a href="about.html">About Us</a>
+                    <ul class="sub-menu">
+                        <li><a href="about.html#who-we-are">Who We Are</a></li>
+                        <li><a href="about.html#academics">Academics</a></li>
+                        <li><a href="about.html#management">Management</a></li>
+                        <li><a href="about.html#achievement">Achievement</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                    <li>
+                        <a href="academics.html">Academics</a>
+                        <ul class="sub-menu">
+                            <li><a href="academics.html#nursery-primary-about">Nursery/Primary</a></li>
+                             <li><a href="academics.html#secondary-about">Secondary</a></li>
+                             <li><a href="academics.html#nursery-primary-curriculum">Curriculum</a></li>
+                             <li><a href="academics.html#academic-calendar">Academic Calendar</a></li>
+                        </ul>
+                    </li>
+                <li>
+                    <a href="#">Admission</a>
+                    <ul class="sub-menu">
+                        <li><a href="admission.html">Admission Requirements</a></li>
+                        <li><a href="arconi form.html">Admission Form</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html">Result Portal</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Requirements Section -->
+    <section class="requirements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Requirements</h2>
+                <p>Documents and criteria required for admission into different levels of education</p>
+            </div>
+            <div class="requirements-container">
+                <div class="requirement-card">
+                    <h3>Primary School (Ages 5-11)</h3>
+                    <ul class="requirement-list">
+                        <li>Completed application form</li>
+                        <li>Birth certificate or passport data page</li>
+                        <li>Passport photographs (4 recent copies)</li>
+                        <li>Immunization records</li>
+                        <li>Report cards from previous school (if applicable)</li>
+                        <li>N15,000 non-refundable application fee</li>
+                        <li>Successful interview with both parent and child</li>
+                        <li>Entrance assessment test for students entering from Primary 2</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3>Junior Secondary School (Ages 11-14)</h3>
+                    <ul class="requirement-list">
+                        <li>Completed application form</li>
+                        <li>Birth certificate or passport data page</li>
+                        <li>Passport photographs (4 recent copies)</li>
+                        <li>Primary School Leaving Certificate or its equivalent</li>
+                        <li>Report cards from last 2 academic years</li>
+                        <li>N25,000 non-refundable application fee</li>
+                        <li>Successful performance in entrance examination</li>
+                        <li>Satisfactory interview with both parent and student</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3>Senior Secondary School (Ages 14-18)</h3>
+                    <ul class="requirement-list">
+                        <li>Completed application form</li>
+                        <li>Birth certificate or passport data page</li>
+                        <li>Passport photographs (4 recent copies)</li>
+                        <li>Junior WAEC results or its equivalent</li>
+                        <li>Report cards from last 3 academic years</li>
+                        <li>Transfer certificate from previous school</li>
+                        <li>N30,000 non-refundable application fee</li>
+                        <li>Successful performance in entrance examination</li>
+                        <li>Satisfactory interview with both parent and student</li>
+                        <li>Character reference letter from previous school</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Calendar -->
+    <section class="requirements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Calendar</h2>
+                <p>Important dates for the 2025/2026 academic session admission process</p>
+            </div>
+            <div class="requirements-container">
+                <div class="requirement-card">
+                    <h3>First Term Admission</h3>
+                    <ul class="requirement-list">
+                        <li>Application Opening: March 1, 2025</li>
+                        <li>Application Deadline: June 30, 2025</li>
+                        <li>Entrance Examination: July 15, 2025</li>
+                        <li>Interview Period: July 20-31, 2025</li>
+                        <li>Admission Notification: August 7, 2025</li>
+                        <li>Acceptance Fee Deadline: August 21, 2025</li>
+                        <li>School Resumption: September 12, 2025</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3>Second Term Admission</h3>
+                    <ul class="requirement-list">
+                        <li>Application Opening: October 1, 2025</li>
+                        <li>Application Deadline: November 30, 2025</li>
+                        <li>Entrance Examination: December 10, 2025</li>
+                        <li>Interview Period: December 15-20, 2025</li>
+                        <li>Admission Notification: December 27, 2025</li>
+                        <li>Acceptance Fee Deadline: January 5, 2026</li>
+                        <li>School Resumption: January 11, 2026</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3>Third Term Admission</h3>
+                    <ul class="requirement-list">
+                        <li>Application Opening: February 1, 2026</li>
+                        <li>Application Deadline: March 20, 2026</li>
+                        <li>Entrance Examination: March 30, 2026</li>
+                        <li>Interview Period: April 5-10, 2026</li>
+                        <li>Admission Notification: April 15, 2026</li>
+                        <li>Acceptance Fee Deadline: April 22, 2026</li>
+                        <li>School Resumption: May 3, 2026</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h3>Arconi Academy</h3>
+            <p>Arconi Academy is committed to providing quality education in a nurturing environment, empowering students to reach their full potential.</p>
+            <div class="social-links">
+                <a href="#" id="social-link" class="fa fa-facebook"></a>
+                <a href="#" id="social-link" class="fa fa-twitter"></a>
+                <a href="#" id="social-link" class="fa fa-instagram"></a>
+                <a href="#" id="social-link" class="fa fa-instagram"></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="Arconi Website.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.htmlnursery-primary-about">Nursery/Primary</a></li>
+                <li><a href="academics.htmlsecondary-about">Secondary</a></li>
+                <li><a href="arconi form.html">Admission Form</a></li>
+                <li><a href="login.html">Result Portal</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Academics</h3>
+            <ul class="footer-links">
+                <li><a href="#nursery-primary-curriculum">Curriculum</a></li>
+                <li><a href="academics.htmlacademic-calendar">Academic Calendar</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">Activities & Programs</a></li>
+    
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter to get the latest updates about our school.</p>
+            <form>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="submit-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Arconi Academy. All Rights Reserved.</p>
+    </div>
+    </div>
+    </footer>
+
+<!-- JavaScript for Mobile Navigation -->
+<script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    mobileToggle.addEventListener('click', function() {
+    navMenu.classList.toggle('active');
+    });
+    
+    // Add click event to parent menu items for mobile
+    if(window.innerWidth <= 768) {
+    const menuItems = document.querySelectorAll('.nav-menu > li');
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        const subMenu = item.querySelector('.sub-menu');
+        
+        if(subMenu) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                subMenu.classList.toggle('show');
+            });
+        }
+    });
+    }
+    </script>
+
+    <html>
